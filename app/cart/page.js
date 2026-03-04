@@ -11,7 +11,8 @@ export const metadata = {
 async function page() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  const userId = user.id
+  const userId = user?.id
+ 
 
   return (
       <div className="grid md2:grid-cols-[5fr_2fr] max-md2:mx-3 max-md2:-translate-y-5">

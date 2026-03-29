@@ -5,7 +5,7 @@ import { sendContactEmail } from "../_lib/actions"
 import toast from "react-hot-toast";
 
 function ContactForm() {
-  const [sent, setSent] = useState(true);
+  const [sent, setSent] = useState(false);
 
   async function clientAction(formData) {
     if(sent) return;

@@ -605,6 +605,9 @@ export async function sendContactEmail(formData) {
     `,
   });
 
+  if(res.error) return {ok: false, error: res.error}
+
+  return {ok: true}
 }
 
 export async function signinAction(formData) {

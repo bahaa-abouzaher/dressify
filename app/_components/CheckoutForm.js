@@ -2,26 +2,34 @@
 
 import toast from "react-hot-toast";
 import { checkoutAction } from "../_lib/actions"
-import { useCart } from "./CartContext";
 import { redirect } from "next/navigation";
+import { useSubmit } from "./SubmitContext";
 
-function form() {
+function CheckoutForm() {
+  const { loading, setLoading } = useSubmit();
 
-  async function clientAction(formData) {
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if(loading) return;
+
+    setLoading(true);
+    const formData = new FormData(e.currentTarget);
     const res = await checkoutAction(formData);
 
     if(res?.ok) {
       toast.success("Purchase Successful");
       redirect(`order-success/${res.order_id}`)
     }
-    else
+    else {
       toast.error("Purchase wasn't Successful, Please try again or contact our Support")
+      setLoading(false);
+    }
   }
   
   return (
     <form 
       id="checkout-form"
-      action={clientAction}
+      onSubmit={handleSubmit}
     >
       <h1 className="font-bold">Personal Info</h1>
       <div className="text-base grid gap-2 sm:grid-cols-2 grid-cols-1 mt-3">
@@ -31,7 +39,7 @@ function form() {
               name="firstName"
               required
               className="formInput shadow-sm"
-              />
+            />
         </div>
 
         <div className="flex flex-col sm:max-w-90 gap-1">
@@ -40,7 +48,7 @@ function form() {
               name="lastName"
               required
               className="formInput shadow-sm"
-              />
+            />
         </div>
 
 
@@ -53,7 +61,7 @@ function form() {
               placeholder="+49 123 4567"
               pattern="^\+?[0-9 ]+$"
               className="formInput shadow-sm"
-              />
+            />
         </div>
       </div>
 
@@ -65,7 +73,7 @@ function form() {
               name="street"
               required
               className="formInput shadow-sm"
-              />
+            />
         </div>
 
         <div className="flex flex-col sm:max-w-90 gap-1">
@@ -73,7 +81,7 @@ function form() {
           <input
               name="additionalInfo"
               className="formInput shadow-sm"
-              />
+            />
         </div>
 
         <div className="flex flex-col sm:max-w-90 gap-1">
@@ -92,7 +100,7 @@ function form() {
               onInput={(e) => {
                 e.currentTarget.setCustomValidity(""); // reset message on input
               }}
-              />
+            />
         </div>
 
         <div className="flex flex-col sm:max-w-90 gap-1">
@@ -101,7 +109,7 @@ function form() {
               name="city"
               required
               className="formInput shadow-sm"
-              />
+            />
         </div>
       </div>
 
@@ -109,4 +117,4 @@ function form() {
   )
 }
 
-export default form
+export default CheckoutForm

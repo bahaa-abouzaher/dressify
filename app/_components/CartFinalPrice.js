@@ -1,20 +1,21 @@
 "use client"
 
-import { useFormStatus } from "react-dom";
-import { calcCartPrices } from "./calcCartPrices";
-import { useCart } from "./CartContext"
 import Link from "next/link";
+import { useState } from "react";
+import { calcCartPrices } from "./calcCartPrices";
+import { useCart } from "./CartContext";
+import { useSubmit } from "./SubmitContext";
 
 
 function CartFinalPrice({ location }) {
   const {cart} = useCart();
-  const { pending } = useFormStatus();
-  console.log(pending);
+  
+  const submit = useSubmit();
+  const loading = submit?.loading || false;
 
   const { total, freeDelivery, finalPrice } = calcCartPrices(cart);
 
   if(!cart.length) return;
-
 
   return (
     <div className="flex flex-col gap-3 px-2 py-4 md2:mt-10 md2:ml-5 bg-(--gray-bg) w-fit h-fit rounded-xl mx-auto min-w-60">
@@ -39,14 +40,14 @@ function CartFinalPrice({ location }) {
             <button 
               type="submit"
               form="checkout-form"
-              disabled={pending}
+              disabled={loading}
               className={`h-fit max-w-40 w-full text-[13px] font-semibold rounded-2xl py-1 px-3 
-                ${pending 
+                ${loading 
                   ? "bg-gray-400 cursor-not-allowed" 
                   : "bg-(--orange-main) hover:bg-(--orange-secondary) cursor-pointer"
                 }`}
             >
-              {pending ? "Processing..." : "Buy now"}
+              {loading ? "Processing..." : "Buy now"}
             </button>
           </div>
         ) : ""}

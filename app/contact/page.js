@@ -23,7 +23,6 @@ async function page() {
             Our dedicated Customer Service Team are here to help you.
             or for quicker assistance you can explore our FAQ to find the information you need.
           </span>
-          <span>You can use our Contact Form to reach us:</span>
         </div>
 
         {/* Contact Form */}

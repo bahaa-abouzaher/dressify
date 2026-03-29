@@ -16,7 +16,7 @@ export default async function Page() {
           <Image 
             src={bg1}
             alt="Home-page photo"
-            className="w-[full] md:h-[350px] h-[300px] object-cover"
+            className="w-[full] md:h-[350px] h-[300px] object-cover md2:rounded-2xl"
           />
 
           <div className="absolute inset-y-[20] left-10 flex justify-start items-center">
@@ -29,7 +29,7 @@ export default async function Page() {
         </div>
 
         <div className="md2:px-20">
-          <h1 className="text-center text-2xl font-medium text-gray-500 xs:mb-10 mb-6">
+          <h1 className="text-center text-2xl font-medium text-(--main-text) xs:mb-10 mb-6">
             Start Shopping!
           </h1>
           

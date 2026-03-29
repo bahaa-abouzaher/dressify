@@ -273,7 +273,7 @@ function ProductsFilters({ products_sizes }) {
 
       ))}
       <button
-        className={`border px-4 py-2 flex items-center gap-2 xs:text-sm text-xs cursor-pointer border-(--orange-main) hover:bg-(--cream-secondary)`}
+        className={`border px-4 py-2 flex items-center gap-2 xs:text-sm text-xs text-(--main-text) cursor-pointer border-(--orange-main) hover:bg-(--cream-secondary)`}
         onClick={resetAll}
       >
         Reset All

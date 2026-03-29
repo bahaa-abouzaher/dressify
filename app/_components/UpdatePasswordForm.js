@@ -1,19 +1,19 @@
 "use client"
 import { useEffect, useState } from "react";
-
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import SignButton from "./SignButton";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { createClient } from "../_lib/supabase/client";
 
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import SignButton from "./SignButton";
+
+
+
 
 function UpdatePasswordForm() {
-
   const supabase = createClient();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  
+
   const [passInput, setPassInput] = useState("");
   const [passRevealed, setPassRevealed] = useState(false);
   const [confirmPassInput, setConfirmPassInput] = useState("");
@@ -72,8 +72,11 @@ function UpdatePasswordForm() {
   }
 
   return (
-    <form id="passwordUpdate-form" onSubmit={handleSubmit} >
-      <div className="flex flex-col gap-3">
+    <form 
+      id="passwordUpdate-form" 
+      onSubmit={handleSubmit} 
+    >
+      <div className="flex flex-col items-center gap-3">
         {error && (
           <p className="text-red-500 text-sm text-center bg-red-50 p-2 rounded">
             {error}
@@ -81,12 +84,12 @@ function UpdatePasswordForm() {
         )}
 
         {!ready && !error && (
-          <p className="text-gray-500 text-sm text-center">
+          <p className="text-(--gray-text) text-sm text-center">
             Verifying reset link...
           </p>
         )}
 
-        <div className="signin">
+        <div className="signin w-2xs">
           <input
             name="password"
             id="password1"
@@ -104,7 +107,7 @@ function UpdatePasswordForm() {
           </label>
           {passInput ? 
             <div 
-              className="absolute top-3.5 right-2 "
+              className="absolute top-3.5 right-2 text-(--main-text)"
               onClick={() => setPassRevealed(!passRevealed)}
             >
               {passRevealed ? <FaRegEye /> : <FaRegEyeSlash />}
@@ -112,7 +115,7 @@ function UpdatePasswordForm() {
           : ""}
         </div>
 
-        <div className="signin">
+        <div className="signin w-2xs">
           <input
             name="password2"
             id="password2"
@@ -133,7 +136,7 @@ function UpdatePasswordForm() {
           </label>
           {confirmPassInput ? 
             <div 
-              className="absolute top-3.5 right-2 "
+              className="absolute top-3.5 right-2 text-(--main-text)"
               onClick={() => setConfirmPassRevealed(!confirmPassRevealed)}
             >
               {confirmPassRevealed ? <FaRegEye /> : <FaRegEyeSlash />}
@@ -141,7 +144,7 @@ function UpdatePasswordForm() {
           : ""}
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center w-[150px]">
           <SignButton buttonAction={"passwordUpdate-form"}>
             Change Password
           </SignButton>

@@ -42,7 +42,7 @@ function WishlistMenu({ userId, wishlist}) {
   }, [userId, wishlist, localWishlist, setLocalWishlist])
 
   return (
-    <div className="relative z-30">
+    <div className="relative z-30 text-(--main-text)" >
       <button 
         onClick={() => toggleOpen()} 
         className="transition-transform duration-300 hover:scale-140 text-(--gray-text) z-30"

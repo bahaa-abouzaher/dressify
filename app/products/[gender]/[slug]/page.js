@@ -56,8 +56,8 @@ export default async function page({ params, searchParams }) {
 
         <div className="flex flex-col py-6 lg:pt-12 gap-5 text-left w-full">
           <p className="text-(--orange-main) font-bold text-xl text-md">Dressify</p>
-          <h1 className="font-bold text-4xl ">{productName}</h1>
-          <p className="text-2xl text-gray-500">{description}</p>
+          <h1 className="font-bold text-4xl text-(--main-text)">{productName}</h1>
+          <p className="text-2xl text-(--gray-text)">{description}</p>
           
           {/* Display price based if on sale or not */}
           <div className="h-10">
@@ -68,13 +68,13 @@ export default async function page({ params, searchParams }) {
                   <span className="line-through text-gray-400 text-base">${price}</span>
                 </p> 
               :
-                <p className="font-bold text-2xl">${price}</p> 
+                <p className="font-bold text-2xl text-(--main-text)">${price}</p> 
             }
             {salePercentage ? <p className="bg-gray-400 w-fit px-1.5">%{salePercentage} SALE</p> : ''}
           </div>
         </div>
 
-        <div className="text-left flex flex-col gap-2">
+        <div className="text-left flex flex-col gap-2 text-(--main-text)">
           <span className="">Size: <strong>{label}</strong></span>
           <ProductVariants variants={variants} selectedVariant={selectedVariant} />
         </div>

@@ -11,7 +11,7 @@ function CheckoutPageComponent() {
   if(!cart.length) redirect("/");
 
   return (
-    <div className="grid md2:grid-cols-[5fr_2fr] max-md2:mx-3 max-md2:gap-7 pb-10">
+    <div className="grid md2:grid-cols-[5fr_2fr] max-md2:mx-3 max-md2:gap-7 pb-10 text-(--main-text)">
       <CheckoutForm  />
       <CartFinalPrice location="checkout" />
     </div>

@@ -1,16 +1,11 @@
 "use client"
 import { useState } from "react";
 
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import SignButton from "./SignButton";
-import { signIn } from "@/app/_lib/auth";
-import { passwordResetAction, signinAction } from "@/app/_lib/actions";
-import { useParams, useRouter } from "next/navigation";
+import { passwordResetAction } from "@/app/_lib/actions";
 import toast from "react-hot-toast";
-
+import SignButton from "./SignButton";
 
 function PasswordResetForm() {
-  const router = useRouter();
 
   const [resetError, setResetError] = useState(null);
 

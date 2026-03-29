@@ -4,7 +4,7 @@ function ApplyResetButtons({apply, reset}) {
       <button
         type="button"
         onClick={reset}
-        className="bg-(--cream-input) hover:bg-white py-1 px-4  text-black text-sm font-semibold cursor-pointer"
+        className="bg-(--cream-input) hover:bg-(--gray-bg) py-1 px-4  text-(--main-text) text-sm font-semibold cursor-pointer"
         >
           Reset
       </button>

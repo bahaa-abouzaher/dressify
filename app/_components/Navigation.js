@@ -1,6 +1,5 @@
-// to get fresh data from Server and not from cache
-
 import Link from "next/link";
+import { cookies } from "next/headers";
 
 import { getCartProducts, getWishlist } from "@/app/_lib/data-service";
 
@@ -11,8 +10,10 @@ import WishlistMenu from "./WishlistMenu";
 
 import { createClient } from '@/app/_lib/supabase/server';
 import { isAdmin } from "../_lib/actions";
+import ToggleTheme from "./ToggleTheme";
 
 async function Navigation() {
+  const theme = (await cookies()).get("theme")?.value || "light";  
   const supabase = await createClient();
 
   const { data: { user } } = await supabase.auth.getUser();
@@ -25,7 +26,7 @@ async function Navigation() {
   if(user) wishlist = await getWishlist(userId);
 
   return (
-    <nav className='flex justify-between  items-center border-b border-gray-200 px-4 max-md2:sticky max-md2:top-0 max-md2:z-100 max-md2:bg-(--cream-secondary) h-16 '>
+    <nav className='flex justify-between  items-center border-b border-gray-200 md2:px-4 px-2 max-md2:sticky max-md2:top-0 max-md2:z-100 max-md2:bg-(--cream-secondary) h-16 '>
       <div className="flex gap-12 items-center max-md2:gap-6">
 
         <MenuToggle />
@@ -37,12 +38,13 @@ async function Navigation() {
         </div>
       </div>
 
-      <div className='flex justify-between items-center gap-8 text-xl'>
+      <div className='flex justify-between items-center md2:gap-8 gap-5 text-xl'>
 
         {user && <WishlistMenu userId={userId} wishlist={wishlist} />}
 
         <CartMenu userId={userId} dbCart={cart} />
 
+        <ToggleTheme initialTheme={theme} />
         <AccountMenu user={user} is_admin={is_admin} />
         
       </div>

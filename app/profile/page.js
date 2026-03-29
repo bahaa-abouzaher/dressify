@@ -17,12 +17,13 @@ export default async function page() {
   const supabase = await createClient();
   const { data: {user}, error } = await supabase.auth.getUser()
 
-  const googleAccount = user.app_metadata.provider === "google";
-
   // Check session after loading
   if (!user) {
     return null 
   }
+
+  // Check if logged in using google account
+  const googleAccount = user.app_metadata.provider === "google";
 
   const profileUser = await getProfile(user.id)
 
@@ -31,7 +32,7 @@ export default async function page() {
 
   return (
     <div className="flex flex-col gap-2 pl-0.5 pr-1">
-      <SyncGuest />
+      {/* <SyncGuest /> */}
       
       <UpdateProfileForm profileUser={profileUser}>
         <SelectCountry

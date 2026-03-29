@@ -608,7 +608,6 @@ export async function sendContactEmail(formData) {
 }
 
 export async function signinAction(formData) {
-  console.log(formData);
   const account = String(formData.get('account') || "").trim();
   const password = String(formData.get("password") || "");
   

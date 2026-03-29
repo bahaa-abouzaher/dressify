@@ -7,8 +7,8 @@ function ContactForm() {
       className=""
     >
       <h1 className="font-semibold text-2xl">Contact Us!</h1>
-      <div className="text-base grid gap-2 grid-cols-1 mt-3">
-        <div className="flex flex-col sm:max-w-90 gap-1">
+      <div className="text-base grid gap-2 md2:gap-3 grid-cols-1 mt-3">
+        <div className="flex flex-col sm:max-w-90 gap-2">
           <label>Full Name *</label>
           <input
               name="name"
@@ -17,7 +17,7 @@ function ContactForm() {
               />
         </div>
 
-        <div className="flex flex-col sm:max-w-90 gap-1">
+        <div className="flex flex-col sm:max-w-90 gap-2">
           <label>Email *</label>
           <input
             type="email"
@@ -28,7 +28,7 @@ function ContactForm() {
           />
         </div>
 
-        <div className="flex flex-col sm:max-w-90 gap-1">
+        <div className="flex flex-col sm:max-w-90 gap-2">
           <label>Phone Number</label>
           <input
               name="number"
@@ -40,7 +40,7 @@ function ContactForm() {
               />
         </div>
         
-        <div className="flex flex-col sm:max-w-90 gap-1 text-sm">
+        <div className="flex flex-col sm:max-w-90 gap-2 text-sm">
           <label>Message *</label>
           <textarea
               name="message"
@@ -49,12 +49,15 @@ function ContactForm() {
               />
         </div>
 
-        <button 
-          className="max-w-40 w-full text-base bg-yellow-400 hover:bg-yellow-300 rounded-lg py-2 px-2 cursor-pointer"
-          type="submit"
-        >
-          Send
-        </button>
+        <div className="sm:max-w-90 text-center">
+          <button 
+            className="center max-w-40 w-full text-base font-semibold bg-(--orange-main) hover:bg-(--orange-secondary) rounded-lg py-2 px-2 cursor-pointer"
+            type="submit"
+          >
+            Send
+          </button>
+
+        </div>
       </div>
 
     </form>

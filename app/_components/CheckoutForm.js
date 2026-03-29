@@ -20,8 +20,8 @@ function form() {
   
   return (
     <form 
-    id="checkout-form"
-    action={clientAction}
+      id="checkout-form"
+      action={clientAction}
     >
       <h1 className="font-bold">Personal Info</h1>
       <div className="text-base grid gap-2 sm:grid-cols-2 grid-cols-1 mt-3">

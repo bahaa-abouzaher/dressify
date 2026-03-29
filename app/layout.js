@@ -1,4 +1,5 @@
 import './globals.css';
+import { cookies } from "next/headers";
 
 import Navigation from './_components/Navigation';
 import ScrollToTop from './_components/ScrollToTop';
@@ -8,8 +9,10 @@ import ClientOverlay from './_components/ClientOverlay';
 import { WishlistProvider } from './_components/WishlistContext';
 
 import { Toaster } from "react-hot-toast"
-import { notFound } from 'next/navigation';
+
 import Footer from './_components/Footer';
+import SyncGuest from './_components/SyncGuest';
+import { createClient } from './_lib/supabase/server';
 
 export const metadata = {
   title: {
@@ -19,11 +22,14 @@ export const metadata = {
   "Ecommerce website for shopping cloth"
 }
 
-export default function RootLayout({ children, params }) {
-  
+export default async function RootLayout({ children, params }) {
+  const theme = (await cookies()).get("theme")?.value || "light";
+
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
 
   return (
-    <html lang="en">
+    <html lang="en" data-theme={theme}>
       <body className="relative min-h-screen mx-auto max-w-[1600px] md2:px-4">
         <CartProvider>
           <PreviewStateProvider>
@@ -33,9 +39,12 @@ export default function RootLayout({ children, params }) {
 
               <Navigation params={params} />
               <ClientOverlay />
+              <SyncGuest userId={user?.id ?? null} />
+
               <main className='mx-auto w-full mt-10'>
                 { children }
               </main>
+              
               <Footer />
 
             <Toaster 

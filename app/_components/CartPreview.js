@@ -14,7 +14,7 @@ function CartPreview({ cart, userId }) {
 
   if (!cart.length) 
     return (
-      <div className="flex flex-col text-center gap-1">
+      <div className="flex flex-col text-center gap-1 text-(--main-text)">
         <button 
           onClick={() => setCartToggle(false)}
           className="absolute top-3 right-0.5 text-[15px]"
@@ -22,17 +22,17 @@ function CartPreview({ cart, userId }) {
           <IoMdClose />
         </button>
 
-        <span className="text-sm text-(--gray-text) font-bold">
+        <span className="text-sm font-bold">
           Your Cart is Empty
         </span>
         <span className="text-xs">
-          Check our <Link href="/products/all" onClick={() => setOpen(false)} className="underline">collection!</Link>
+          Check our <Link href="/products/all" onClick={() => setOpen(false)} className="underline link">collection!</Link>
         </span>
       </div>
     )
 
   return (
-    <div className="flex flex-col gap-5 px-2 py-2">
+    <div className="flex flex-col gap-5 px-2 py-2 text-(--main-text)">
       {cartToggle && 
         <button 
           onClick={() => setCartToggle(false)}

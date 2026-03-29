@@ -4,12 +4,13 @@ import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import SignButton from "./SignButton";
 import { singupAction } from "../_lib/actions";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 
 
 function SignInForm() {
   const router = useRouter();
+  const sp = useSearchParams()
 
   const [passInput, setPassInput] = useState("");
   const [passRevealed, setPassRevealed] = useState(false);
@@ -28,7 +29,7 @@ function SignInForm() {
     }
     setRegistrationError(null);
     toast.success("Registration Successfull!");
-    router.push("/profile");
+    router.push(sp.get("next") || "/");
   }
 
   return (
@@ -104,7 +105,7 @@ function SignInForm() {
           </label>
           {passInput ? 
             <div 
-              className="absolute top-3.5 right-2 "
+              className="absolute top-3.5 right-2 text-(--main-text)"
               onClick={() => setPassRevealed(!passRevealed)}
             >
               {passRevealed ? <FaRegEye /> : <FaRegEyeSlash />}
@@ -132,7 +133,7 @@ function SignInForm() {
           </label>
           {confirmPassInput ? 
             <div 
-              className="absolute top-3.5 right-2 "
+              className="absolute top-3.5 right-2 text-(--main-text)"
               onClick={() => setConfirmPassRevealed(!confirmPassRevealed)}
             >
               {confirmPassRevealed ? <FaRegEye /> : <FaRegEyeSlash />}

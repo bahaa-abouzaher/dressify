@@ -12,7 +12,7 @@ function ProductsFilterDropdown({ label, isOpen, onToggle, children}) {
     ||(label === "Price" && (sp.get("min")?.length > 0 || sp.get("max")?.length > 0))
 
   return (
-    <div className="relative ">
+    <div className="relative text-(--main-text)">
       <button
         type="button"
         onClick={onToggle}

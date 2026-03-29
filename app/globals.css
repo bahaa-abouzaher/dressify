@@ -54,9 +54,44 @@ input[type="number"] {
 
 
 :root {
-  /* --gray-text: #6B7280; */
+  --main-text: #161616;
   --gray-text: #6b6d75;
   --gray-bg: #ccd2df;
+  --gray-bg-secondary: #aaa;
+  --link-text: #155dfc;
+  --link-hover: #42A5F5;
+  --hover-buttons-text: #0d57a7;
+  --hover-buttons-bg: #56616d;
+  --orange-main: #ff7d1a;
+  --orange-secondary: #faa96c;
+  --cream-main: rgb(240, 240, 233);
+  --cream-secondary: rgb(220, 220, 210);
+  --cream-input: rgb(226, 226, 221);
+  --button-secondary: rgb(218, 22, 22);
+}
+
+[data-theme="dark"] {
+  --main-text: #ece9e9;
+  --gray-text: #d1d3db;
+  --gray-bg: #353840;
+  --gray-bg-secondary: #b6b9c0;
+  --link-text: #6b98e7;
+  --link-hover: #155dfc;
+  --hover-buttons-text: #a8c8ff;
+  --hover-buttons-bg: #444a56;
+  --orange-main: #ff7d1a;
+  --orange-secondary: #faa96c;
+  --cream-main: #282b32;
+  --cream-secondary: #3a3f49;
+  --cream-input: #2e3139;
+  --button-secondary: rgb(218, 22, 22);
+}
+
+[data-theme="light"] {
+  --main-text: #272525;
+  --gray-text: #6b6d75;
+  --gray-bg: #ccd2df;
+  --gray-bg-secondary: #aaa;
   --link-text: #155dfc;
   --link-hover: #42A5F5;
   --hover-buttons-text: #0d57a7;
@@ -75,7 +110,7 @@ body {
                'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: #111; /* optional default text color */
   /* margin-block: calc(var(--spacing) * 10); */
-  background-color: rgb(240, 240, 233);
+  background-color: var(--cream-main);
   
 }
 
@@ -88,6 +123,7 @@ body {
   -webkit-text-fill-color: transparent;
 
   animation: moveBg 8s linear infinite;
+ 
 }
 
 @keyframes moveBg {
@@ -158,6 +194,7 @@ body {
   background-color: white;
   border-color: var(--orange-main);
   border-radius: 6px;
+  color:#111;
 }
 
 .profileFormInput {
@@ -174,6 +211,7 @@ body {
 .profileFormInput:focus {
   outline:none;
   background-color: white;
+  color: #000;
   border-color: var(--orange-main);
   border-radius: 6px;
 }
@@ -181,7 +219,6 @@ body {
 
 .signin {
   position: relative;
-
   font-family: sans-serif;
 }
 
@@ -189,12 +226,14 @@ body {
   width: 100%;
   padding: 18px 11px 8px;
   font-size: 14px;
+  color: var(--gray-text);
   border: 1px solid #aaa;
   border-radius: 4px;
   outline: none;
 }
-.signin input:focus {
-  background-color: white;
+.signin input:focus{
+  background-color: var(--gray-bg);
+  
   border-color: var(--orange-main);
 }
 
@@ -223,8 +262,10 @@ body {
   border: 1px solid #aaa;
   border-radius: 20px;
   outline: none;
-  background-color: #aaa;
-  color: white;
+  background-color: var(--gray-bg-secondary);
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .signbutton:hover {

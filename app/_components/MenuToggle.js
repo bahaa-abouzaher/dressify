@@ -19,7 +19,7 @@ function MenuToggle() {
       {/* Toggle Button (hamburger) */}
       <button
         onClick={() => handleHamburger(true)}
-        className="text-gray-600 z-40 relative"
+        className="text-(--gray-text) z-40 relative"
       >
         <IoMenuSharp className="size-8" />
       </button>
@@ -34,20 +34,20 @@ function MenuToggle() {
           </div>
 
           {/* Side Menu */}
-          <div className="fixed top-0 left-0 z-70 h-full w-[40%] bg-white shadow-lg p-8 ">
+          <div className="fixed top-0 left-0 z-70 h-full w-[40%] bg-(--gray-bg) shadow-lg p-8 ">
             {/* Close Button */}
             <button
               onClick={() => setNavigationToggle(false)}
-              className="self-start mb-8 text-gray-600"
+              className="self-start mb-8 text-(--gray-text)"
               aria-label="Close menu"
             >
-              <IoClose className="size-8" />
+              <IoClose className="text-xl" />
             </button>
-            <nav className="flex flex-col gap-6 text-lg font-semibold">
+            <nav className="flex flex-col gap-6 text-lg font-semibold text-(--gray-text)">
               <Link onClick={() => setNavigationToggle(false)} className='' href="/">Home</Link>
               <Link onClick={() => setNavigationToggle(false)} className='' href="/products/all">Collection</Link>
               <Link onClick={() => setNavigationToggle(false)} className='' href="/about">About</Link>
-              <Link onClick={() => setNavigationToggle(false)} className='' href="/contact">Contact</Link>
+              {/* <Link onClick={() => setNavigationToggle(false)} className='' href="/contact">Contact</Link> */}
 
             </nav>
   

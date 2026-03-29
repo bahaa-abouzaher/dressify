@@ -33,23 +33,23 @@ function ProductsNavigation() {
         <button
           type="button"
           onClick={() => setOpenCategory(!openCategory)}
-          className={`w-full border border-(--orange-main) px-3 py-2 text-sm text-left ${activeMobile ? "bg-(--cream-secondary)" : ""}`}
+          className={`w-full border border-(--orange-main) text-(--main-text) px-3 py-2 text-sm text-left ${activeMobile ? "bg-(--cream-secondary)" : ""}`}
         >
           Category: {activeFilter === "all" ? "All Products" : activeFilter}
         </button>
         {openCategory && (
-          <div className="absolute bg-(--cream-main) top-full left-0 w-full border border-(--orange-main) z-50">
+          <div className="absolute bg-(--cream-main) top-full left-0 w-full border border-(--orange-main) z-50 text-(--main-text)">
               {categories.map((cat) => (
                 <button
                   key={cat}
-                  type="button"
+                  type=""
                   onClick={() => {
                     handleFilter(cat);
                     setOpenCategory(false);
                   }}
                   className={`
                     h-10 w-full text-left p-3 hover:bg-(--cream-secondary) 
-                    ${selectedCategory === cat || (selectedCategory === "all" && cat === "All Products") ? "font-semibold" : ""}
+                    ${selectedCategory === cat || (selectedCategory === "all" && cat === "All Products") ? "font-semibold " : ""}
                   `}
                     >
                   {cat}
@@ -84,7 +84,7 @@ function Button({ filter, handleFilter, activeFilter, children}) {
       className={`
         px-1 py-2 text-xs sm:text-base font-medium text-(--gray-text) w-full   
         hover:text-blue-600 rounded-lg cursor-pointer 
-        ${filter === activeFilter || (filter === "All Products" && activeFilter === "all") ? 'bg-(--cream-secondary) text-black' : ''}`}
+        ${filter === activeFilter || (filter === "All Products" && activeFilter === "all") ? 'bg-(--cream-secondary) text-(--main-text)' : ''}`}
     >
       {children}
     </button>

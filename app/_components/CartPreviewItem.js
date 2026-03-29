@@ -38,7 +38,7 @@ function CartPreviewItem({ product, userId, setCartToggle }) {
   }
   
   return (
-    <div className="grid grid-cols-[1fr_2fr_1fr_1fr_auto] items-center w-full">
+    <div className="grid grid-cols-[1fr_2fr_1fr_1fr_auto] items-center w-full text-(--main-text)">
       <Link 
         className="relative w-10 h-10 md2:w-12 md2:h-12"
         href={`/products/${category}/${slug}`} 
@@ -49,7 +49,7 @@ function CartPreviewItem({ product, userId, setCartToggle }) {
           alt={productName}
           width={40}
           height={40}
-          className="object-contain p-1 bg-white  object-top w-10 h-10 hover:scale-120"
+          className="object-contain p-1 bg-white object-top w-10 h-10 hover:scale-120"
         />
       </Link>
 

@@ -26,7 +26,7 @@ function ProductsPagination({products_number, currentPage, totalPages}) {
   }
 
   return (
-    <div className="flex justify-center items-center mt-5 gap-6">
+    <div className="flex justify-center items-center mt-5 gap-6 text-(--main-text)">
       <button 
         disabled={currentPage === 1}
         onClick={()=>handlepagination("prev")}

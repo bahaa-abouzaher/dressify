@@ -54,11 +54,11 @@ function CartMenu({ userId, dbCart }) {
       </button>
       {cartToggle && ( 
 
-          <div className="absolute top-full mt-1">
-            <Preview width={width} translate={74} zIndex={60}>
-              <CartPreview cart={cart} userId={userId} />
-            </Preview>
-          </div>
+        <div className="absolute top-full mt-1">
+          <Preview width={width} translate={63} zIndex={60}>
+            <CartPreview cart={cart} userId={userId} />
+          </Preview>
+        </div>
 
       )}
     </div>

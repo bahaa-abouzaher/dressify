@@ -223,7 +223,7 @@ function UploadProductForm() {
               {variants.map((v, index) => (
                 <div
                   key={index}
-                  className="grid grid-cols-12 gap-2 items-end rounded-xl bg-white/50 p-3"
+                  className="grid grid-cols-12 gap-2 items-end rounded-xl bg-white/30 p-3"
                 >
 
                   <div className="col-span-2">

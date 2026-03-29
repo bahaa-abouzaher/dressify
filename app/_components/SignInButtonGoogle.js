@@ -2,23 +2,27 @@
 
 import Image from "next/image"
 import { createClient } from '@/app/_lib/supabase/client';
+import { useSearchParams } from "next/navigation";
 
 function SignInButtonGoogle() {
   const supabase = createClient();
+  const sp = useSearchParams();
 
   async function signInGoogle() {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/auth/callback?next=/profile`
+        redirectTo: `${window.location.origin}/auth/callback?next=${sp.get("next") || "/"}`
       },
     })
+
+    
   }
   
   return (
         <button 
           onClick={signInGoogle}
-          className="border px-5 py-2 rounded-2xl flex items-center gap-2 text-sm font-medium cursor-pointer"
+          className="signbutton flex justify-center gap-3 w-[250px]"
         >
           <Image
             src='https://authjs.dev/img/providers/google.svg'

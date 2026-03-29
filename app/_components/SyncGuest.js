@@ -1,30 +1,34 @@
-"use client"
 
-import { useEffect, useRef } from "react";
+"use client";
+
+import { useEffect } from "react";
 import { syncCartAfterSignIn } from "@/app/_lib/actions";
 import { useCart } from "./CartContext";
 
-// used to sync guest cart(state) with dbCart
-function SyncGuest() {
+function SyncGuest({ userId }) {
   const { cart, setCart, syncComplete } = useCart();
 
   useEffect(() => {
-    if(syncComplete.current) return;
+    if (!userId) {
+      syncComplete.current = false; // reset after logout / no user
+      return;
+    }
+
+    if (syncComplete.current) return;
     syncComplete.current = true;
 
     async function syncOrLoad() {
-      // If user hast Guest cart items, merge them
       const mergedCart = await syncCartAfterSignIn(cart);
 
-      if(mergedCart) {
+      if (mergedCart) {
         setCart(mergedCart);
-        syncComplete.current = true
       }
     }
+
     syncOrLoad();
-  },[])
+  }, [userId, cart, setCart, syncComplete]);
 
   return null;
 }
 
-export default SyncGuest
+export default SyncGuest;

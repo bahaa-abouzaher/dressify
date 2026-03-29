@@ -86,7 +86,7 @@ function CartPagePreviewItem({ handleDeleteCartItem, item, userId}) {
           />
         </Link>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 ">
           <Link 
             href={`/products/${category}/${slug}`} 
             className="font-semibold md2:text-lg text-base hover:text-gray-500">
@@ -94,7 +94,7 @@ function CartPagePreviewItem({ handleDeleteCartItem, item, userId}) {
           </Link>
           <span className="md2:text-xs text-[9px]">Expected Delivery: {deliveryDate}</span>
           <span className="text-sm">Size: <strong>{size}</strong></span>
-          <div className="flex gap-3 text-xs w-fit">
+          <div className="flex md2:flex-row flex-col items-start md2:gap-3 gap-1 text-xs">
             {userId !== null ? <CartWishlistLink userId={userId} productId={product_id} /> : ''}
             <button 
               className="cursor-pointer link"

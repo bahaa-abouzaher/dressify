@@ -26,7 +26,7 @@ function CustomLink({ gender, category, params, children}) {
       className={`
         py-2 xs:px-2 text-xs sm:text-sm font-medium text-(--gray-text) 
         hover:bg-(--cream-secondary) cursor-pointer w-full text-center
-        ${gender === params ? 'bg-(--cream-secondary) text-black' : ''}`}
+        ${gender === params ? 'bg-(--cream-secondary) text-(--main-text)' : ''}`}
     >
       {children}
     </Link>

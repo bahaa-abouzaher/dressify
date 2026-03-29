@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import AccountPreview from "./AccountPreview"
 import Preview from "./Preview"
 import { usePreviewState } from "./PreviewStateContext"
@@ -17,6 +17,7 @@ function AccountMenu({ user, is_admin }) {
   const [avatar, setAvatar] = useState("");
  
   const router = useRouter(); // App Router
+  const pathname = usePathname();
 
   function toggleOpen() {
     setProfileToggle(!profileToggle)
@@ -41,8 +42,8 @@ useEffect(() => {
 if(!user) 
   return (
     <Link 
-      className="nav text-gray-500 z-30"
-      href="/account/login"
+      className="nav text-(--gray-text) z-30"
+      href={`/account/login?next=${encodeURIComponent(pathname)}`} // pathname to go back to URL after login
       onClick={toggleOpen}
       aria-label="Go to Login Page"
     >
@@ -51,7 +52,7 @@ if(!user)
 )
 
   return (
-    <div className="relative z-30 flex">
+    <div className="relative z-30 flex text-(--main-text)">
       <button onClick={() => toggleOpen()}>
         {avatar ? 
           <Image 

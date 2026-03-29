@@ -1,15 +1,18 @@
 "use client"
+
 import { useState } from "react";
 
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import SignButton from "./SignButton";
 import { signIn } from "@/app/_lib/auth";
 import { signinAction } from "@/app/_lib/actions";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 
 function SignInForm() {
   const router = useRouter();
+  const sp = useSearchParams();
+
 
   const [passInput, setPassInput] = useState("");
   const [passRevealed, setPassRevealed] = useState(false);
@@ -25,7 +28,7 @@ function SignInForm() {
     }
 
     setLoginError(null);
-    router.push("/profile")
+    router.push(sp.get("next") || "/");
   }
   
   return (
@@ -41,6 +44,7 @@ function SignInForm() {
             id="account"
             required
             placeholder=" "
+
           />
           <label htmlFor="account">
             Username or email
@@ -54,6 +58,7 @@ function SignInForm() {
             type={passRevealed ? "text" : "password"}
             required
             placeholder=" "
+
             value={passInput}
             onChange={(e) => setPassInput(e.target.value)}
           />

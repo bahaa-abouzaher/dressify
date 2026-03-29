@@ -113,6 +113,7 @@ export const SIZE_OPTIONS = [
   { label: "9 Years", value: "9y" },
   { label: "10 Years", value: "10y" },
   { label: "11 Years", value: "11y" },
+  { label: "12 Years", value: "12y" },
 
   // One Size Only
   { label: "One Size", value: "one" },

@@ -9,7 +9,6 @@ import { HiChevronRight, HiChevronLeft } from "react-icons/hi";
 
 export default function HorizontalProductRow({ products }) {
   const ref = useRef(null);
-  console.log(products[0]);
 
   const scroll = (dir) => {
     const el = ref.current;
@@ -26,7 +25,7 @@ export default function HorizontalProductRow({ products }) {
         className="
           absolute left-0 top-1/2 -translate-y-1/2 z-10
           h-15 w-5 rounded-sm
-          bg-(--gray-bg) text-(--gray-main) text-3xl
+          bg-(--gray-bg) text-(--main-text) text-3xl
           flex items-center justify-center
           opacity-0 group-hover:opacity-100
           transition-opacity duration-300
@@ -66,7 +65,7 @@ export default function HorizontalProductRow({ products }) {
         className="
           absolute right-0 top-1/2 -translate-y-1/2 z-10
           h-15 w-5 rounded-sm
-          bg-(--gray-bg) text-(--gray-main) text-3xl
+          bg-(--gray-bg) text-(--main-text) text-3xl
           flex items-center justify-center
           opacity-0 group-hover:opacity-100
           transition-opacity duration-300

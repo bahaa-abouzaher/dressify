@@ -15,7 +15,7 @@ async function page() {
  
 
   return (
-      <div className="grid md2:grid-cols-[5fr_2fr] max-md2:mx-3 max-md2:-translate-y-5">
+      <div className="grid md2:grid-cols-[5fr_2fr] max-md2:mx-3 max-md2:-translate-y-5 text-(--main-text)">
         <CartPagePreview userId={userId} />
         <CartFinalPrice location="cart" />
       </div>

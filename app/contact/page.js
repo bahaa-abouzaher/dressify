@@ -14,7 +14,7 @@ async function page() {
   const faqQuestions = await getFaqQuestions();
 
   return (
-    <div className="grid md:grid-cols-[3fr_2fr] grid-cols-1 md2:px-4 xs:px-3 px-2 gap-10 mb-10">
+    <div className="grid md:grid-cols-[3fr_2fr] grid-cols-1 md2:px-4 xs:px-3 px-2 gap-10 mb-10 text-(--main-text)">
       {/* Contact details and Form */}
       <div className="max-w-xl flex flex-col gap-5">
         <div className="flex flex-col md2:gap-5 gap-2 ">

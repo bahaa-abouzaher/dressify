@@ -5,7 +5,7 @@ import { sendContactEmail } from "../_lib/actions"
 import toast from "react-hot-toast";
 
 function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const [sent, setSent] = useState(true);
 
   async function clientAction(formData) {
     if(sent) return;
@@ -23,14 +23,11 @@ function ContactForm() {
   }
 
   if(sent) return(
-    <div className="flex flex-col items-center gap-5 border border-(--gray-text) p-2 rounded-2xl max-w-xs">
-      <span className="text-xl font-semibold text-(--main-text)">Message Sent Successfully</span>
-      <button 
-        className="center max-w-42 w-full text-sm font-semibold rounded-lg py-2 px-1  bg-(--orange-main) hover:bg-(--orange-secondary)"
-        onClick={() => setSent(false)}
-        >
-          Send another Message
-        </button>
+    <div className="flex flex-col items-center gap-4 bg-(--cream-secondary) p-6 rounded-2xl max-w-xs text-center">
+      <span className="text-3xl text-(--orange-main)">✓</span>
+      <span className="text-lg font-semibold text-(--main-text)">Message sent successfully</span>
+      <span className="text-sm text-(--gray-text)">We’ll get back to you soon.</span>
+      <button className="mt-2 max-w-42 w-full text-sm font-semibold rounded-lg py-2 px-1 bg-(--orange-main) hover:bg-(--orange-secondary) transition" onClick={() => setSent(false)}>Send another message</button>
     </div>
   )
   

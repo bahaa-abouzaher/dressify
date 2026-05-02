@@ -36,7 +36,7 @@ function ContactForm() {
       action={clientAction}
     >
       <p className="mb-2">You can use our Contact Form to reach us:</p>
-      <h1 className="font-semibold text-2xl">Contact Us!</h1>
+      <h1 className="font-semibold text-2xl">Contact Us:</h1>
       <div className="text-base grid gap-2 md2:gap-3 grid-cols-1 mt-3">
         <div className="flex flex-col sm:max-w-90 gap-2">
           <label htmlFor="name">Full Name *</label>

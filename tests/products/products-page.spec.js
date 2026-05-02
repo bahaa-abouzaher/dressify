@@ -24,7 +24,7 @@ test.describe('products searchbar', () => {
     await searchInput.fill('xyznonexistent123');
     await page.waitForTimeout(500);
 
-    await expect(page.getByTestId('product-card')).toHaveCount(1);
+    await expect(page.getByTestId('product-card')).toHaveCount(0);
   })
 
 })

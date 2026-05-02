@@ -39,19 +39,21 @@ function ContactForm() {
       <h1 className="font-semibold text-2xl">Contact Us!</h1>
       <div className="text-base grid gap-2 md2:gap-3 grid-cols-1 mt-3">
         <div className="flex flex-col sm:max-w-90 gap-2">
-          <label>Full Name *</label>
+          <label htmlFor="name">Full Name *</label>
           <input
-              name="name"
-              required
-              className="formInput shadow-sm"
-              />
+            id="name"
+            name="name"
+            required
+            className="formInput shadow-sm"
+          />
         </div>
 
         <div className="flex flex-col sm:max-w-90 gap-2">
-          <label>Email *</label>
+          <label htmlFor="email">Email *</label>
           <input
-            type="email"
+            id="email"
             name="email"
+            type="email"
             required
             pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
             className="formInput shadow-sm"
@@ -59,24 +61,26 @@ function ContactForm() {
         </div>
 
         <div className="flex flex-col sm:max-w-90 gap-2">
-          <label>Phone Number</label>
+          <label htmlFor="phoneNumber">Phone Number</label>
           <input
-              name="number"
-              type="text"
-              inputMode="numeric"
-              placeholder="+49 123 4567"
-              pattern="^\+?[0-9 ]+$"
-              className="formInput shadow-sm"
-              />
+            id="phoneNumber"
+            name="number"
+            type="text"
+            inputMode="numeric"
+            placeholder="+49 123 4567"
+            pattern="^\+?[0-9 ]+$"
+            className="formInput shadow-sm"
+          />
         </div>
         
         <div className="flex flex-col sm:max-w-90 gap-2 text-sm">
-          <label>Message *</label>
+          <label htmlFor="message">Message *</label>
           <textarea
-              name="message"
-              required
-              className="formInput shadow-sm min-h-25"
-              />
+            id="message"
+            name="message"
+            required
+            className="formInput shadow-sm min-h-25"
+          />
         </div>
 
         <div className="sm:max-w-90 text-center">

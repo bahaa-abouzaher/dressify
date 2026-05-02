@@ -82,7 +82,7 @@ function AddToCart({ userId, productId, selectedVariant, awaitedSearchParams, ca
           p-2 rounded-md text-white font-bold disabled:opacity-50 disabled:cursor-not-allowed
         "
       >
-        {<BsCart3 />}{loading ? "Adding..." : " Add to Cart" }
+        {<BsCart3 />}{loading ? "Adding..." : "Add to Cart" }
       </button>
     </div>
   )

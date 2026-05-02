@@ -7,7 +7,9 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "vercel --prod"
+    "deploy": "vercel --prod",
+    "test": "playwright test",
+    "test:slow": "set SLOWMO=1 && playwright test"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -30,8 +32,10 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4.1.12",
-    "baseline-browser-mapping": "^2.10.12",
+    "@types/node": "^25.6.0",
+    "baseline-browser-mapping": "^2.10.23",
     "eslint": "^9",
     "eslint-config-next": "15.5.1",
     "tailwindcss": "^4.1.12"

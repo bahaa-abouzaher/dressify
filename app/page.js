@@ -88,7 +88,7 @@ export default async function Page() {
         </div>
 
         <ProductPreviewRow title="Newest Collection!" sort={"newest"} limit={12} />
-        <ProductPreviewRow title="ON SALE!" sort={"onSale"} limit={12} />
+        <ProductPreviewRow title="ON SALE!" sort={"onSale"} limit={12} /> 
 
       </div>
     </>

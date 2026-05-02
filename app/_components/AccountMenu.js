@@ -26,6 +26,13 @@ function AccountMenu({ user, is_admin }) {
     setWishlistToggle(false);
   }
 
+  function closeMenus() {
+    setProfileToggle(false)
+    setCartToggle(false);
+    setNavigationToggle(false);
+    setWishlistToggle(false);
+  }
+
 useEffect(() => {
   if(!user) return; // guard not to load avatar if not logged in
 
@@ -44,7 +51,7 @@ if(!user)
     <Link 
       className="nav text-(--gray-text) z-30"
       href={`/account/login?next=${encodeURIComponent(pathname)}`} // pathname to go back to URL after login
-      onClick={toggleOpen}
+      onClick={closeMenus}
       aria-label="Go to Login Page"
     >
       Login

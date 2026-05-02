@@ -24,7 +24,14 @@ async function page({ params, searchParams }) {
 
   // filter for choosing category as Men, women, or kids, And for Search Feature
   const awaitedSearchParams = await searchParams;
-  const search = awaitedSearchParams?.search ?? "";
+  const rawSearch = awaitedSearchParams?.search ?? "";
+  const search = rawSearch
+    .toLowerCase()
+    .replace(/[<>]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 60);
+
   const category = awaitedSearchParams?.category ?? "all";
   const sort = awaitedSearchParams?.sort ?? "";
   const selectedSizes = awaitedSearchParams?.s?.split("_") ?? [];// converting to array

@@ -32,7 +32,10 @@ function CartPreview({ cart, userId }) {
     )
 
   return (
-    <div className="flex flex-col gap-5 px-2 py-2 text-(--main-text)">
+    <div 
+      className="flex flex-col gap-5 px-2 py-2 text-(--main-text)"
+      data-testid="cart-preview"
+    >
       {cartToggle && 
         <button 
           onClick={() => setCartToggle(false)}

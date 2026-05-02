@@ -19,7 +19,10 @@ function ProductCard({ product, userId }) {
   const salePrice = highest_percentage ? Number(price * (1 - highest_percentage/100)).toFixed(2) : Number(price).toFixed(2);
 
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div 
+      className="flex flex-col gap-3 w-full"
+      data-testid="product-card"
+    >
       <Link 
         href={`/products/${category}/${slug}`} 
         className="relative aspect-square hover:border-2 hover:border-(--orange-main) overflow-hidden"

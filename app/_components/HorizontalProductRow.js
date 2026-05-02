@@ -49,7 +49,7 @@ export default function HorizontalProductRow({ products }) {
           >
             <Image
               src={`${PRODUCTS_IMAGE_BASE}${p.photos[0]}`} // adjust field name
-              alt=""
+              alt={p.productName || 'product image'}
               fill
               className="object-contain p-1 bg-white rounded-2xl gap-2"
               sizes="260px"

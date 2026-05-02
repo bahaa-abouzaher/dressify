@@ -13,10 +13,19 @@ function ProductsSearchBar() {
 
   const [searchedValue, setSearchedValue] = useState(initialSearch);
 
+  const normalizeSearch = (value) =>
+    value.
+      toLowerCase()
+      .replace(/[<>]/g, "")
+      .replace(/\s+/g, " ")
+      .trimStart()
+      .slice(0, 60);
+
+  console.log("searched value :", searchedValue);
   useEffect(() => {
     const params = new URLSearchParams(searchParams);
     if(searchedValue) {
-      params.set("search", searchedValue);
+      params.set("search", searchedValue.trim());
     }
     else {
       params.delete("search");
@@ -34,8 +43,9 @@ function ProductsSearchBar() {
       type="search"
       placeholder="Search products..."
       value={searchedValue}
-      onChange={(e) => setSearchedValue(e.target.value.toLocaleLowerCase())}
+      onChange={(e) => setSearchedValue(normalizeSearch(e.target.value))}
       className="w-full px-3 py-2 rounded border border-(--orange-main) text-(--gray-text) focus:outline-(--orange-main) text-xs sm:text-sm"
+      id="searchBar"
     />  
   )
 }

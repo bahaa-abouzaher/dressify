@@ -7,7 +7,7 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [initialized, setInitialized] = useState(false);
-  const [totalPrice, setTotalPrice] = useState(null)
+  const [totalPrice, setTotalPrice] = useState(null);
 
   // prevents duplicate effect runs in React Strict Mode, and flag for Cart Merge and Signin
   const syncComplete = useRef(false);

@@ -248,17 +248,19 @@ export async function syncCartAfterSignIn(reactCart) {
   const dbCartBefore = await getCartProducts(userId);
 
   for (const item of reactCart){
-
+    console.log(item);
     const {
       quantity, 
       product_id: productId, 
+      category,
+      slug,
       product_variants: {sku}} = item;
     
     // 2) only add if not already in the db cart
     const exists = dbCartBefore.find(dbItem => dbItem.product_id === productId && dbItem.product_variants.sku === sku)
 
     if(!exists)
-      await addCartItem(productId, quantity, sku)
+      await addCartItem(productId, quantity, sku, category, slug)
   }
   
   // 3) fetch the latest db cart

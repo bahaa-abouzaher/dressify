@@ -34,82 +34,93 @@ function CheckoutForm() {
       <h1 className="font-bold">Personal Info</h1>
       <div className="text-base grid gap-2 sm:grid-cols-2 grid-cols-1 mt-3">
         <div className="flex flex-col sm:max-w-90 gap-1">
-          <label>First Name <span className="text-[9px]">(required)</span></label>
+          <label htmlFor="firstName">First Name <span className="text-[9px]">(required)</span></label>
           <input
-              name="firstName"
-              required
-              className="formInput shadow-sm"
-            />
+            id="firstName"
+            name="firstName"
+            required
+            className="formInput shadow-sm"
+          />
         </div>
 
         <div className="flex flex-col sm:max-w-90 gap-1">
-          <label>Last Name <span className="text-[9px]">(required)</span></label>
+          <label htmlFor="lastName">Last Name <span className="text-[9px]">(required)</span></label>
           <input
-              name="lastName"
-              required
-              className="formInput shadow-sm"
-            />
+            id="lastName"
+            name="lastName"
+            required
+            className="formInput shadow-sm"
+          />  
         </div>
 
 
         <div className="flex flex-col sm:max-w-90 gap-1">
-          <label>Phone Number</label>
+          <label htmlFor="number">Phone Number</label>
           <input
-              name="number"
-              type="text"
-              inputMode="numeric"
-              placeholder="+49 123 4567"
-              pattern="^\+?[0-9 ]+$"
-              className="formInput shadow-sm"
-            />
+            id="number"
+            name="number"
+            type="text"
+            inputMode="numeric"
+            placeholder="+49 123 4567"
+            pattern="^\+?[0-9 ]+$"
+            className="formInput shadow-sm"
+          />
         </div>
       </div>
 
       <h1 className="mt-6 font-bold">Address</h1>
       <div className="text-base grid gap-2 sm:grid-cols-2 grid-cols-1 mt-3">
         <div className="flex flex-col sm:max-w-90 gap-1">
-          <label>Street <span className="text-[9px]">(required)</span></label>
+          <label htmlFor="street">Street <span className="text-[9px]">(required)</span></label>
           <input
-              name="street"
-              required
-              className="formInput shadow-sm"
-            />
+            id="street"
+            name="street"
+            required
+            className="formInput shadow-sm"
+          />
         </div>
 
         <div className="flex flex-col sm:max-w-90 gap-1">
-          <label>Additional delivery info</label>
+          <label htmlFor="additionalInfo">Additional delivery info</label>
           <input
-              name="additionalInfo"
-              className="formInput shadow-sm"
-            />
+            id="additionalInfo"
+            name="additionalInfo"
+            className="formInput shadow-sm"
+          />
         </div>
 
         <div className="flex flex-col sm:max-w-90 gap-1">
-          <label>Postcode <span className="text-[9px]">(required)</span></label>
+          <label htmlFor="postcode">
+            Postcode <span className="text-[9px]">(required)</span>
+          </label>
           <input
-              name="postcode"
-              required
-              type="text"
-              inputMode="numeric"
-              pattern="[0-9]+$"
-              placeholder="54321"
-              className="formInput shadow-sm"
-              onInvalid={(e) => {
-                e.currentTarget.setCustomValidity("Please enter numbers only");
-              }}
-              onInput={(e) => {
-                e.currentTarget.setCustomValidity(""); // reset message on input
-              }}
-            />
+            id="postcode"
+            name="postcode"
+            required
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]+$"
+            placeholder="54321"
+            className="formInput shadow-sm"
+            onInvalid={(e) => {
+              e.currentTarget.setCustomValidity("Please enter numbers only");
+            }}
+            onInput={(e) => {
+              e.currentTarget.setCustomValidity(""); // reset message on input
+            }}
+          />
         </div>
 
         <div className="flex flex-col sm:max-w-90 gap-1">
-          <label>City <span className="text-[9px]">(required)</span></label>
+          <label htmlFor="city">
+            City <span className="text-[9px]">(required)</span>
+          </label>
           <input
-              name="city"
-              required
-              className="formInput shadow-sm"
-            />
+            id="city"
+            name="city"
+            required
+            className="formInput shadow-sm"
+          />
         </div>
       </div>
 

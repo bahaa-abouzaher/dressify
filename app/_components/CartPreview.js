@@ -14,7 +14,10 @@ function CartPreview({ cart, userId }) {
 
   if (!cart.length) 
     return (
-      <div className="flex flex-col text-center gap-1 text-(--main-text)">
+      <div 
+        className="flex flex-col text-center gap-1 text-(--main-text)"
+        data-testid="cart-preview"
+      >
         <button 
           onClick={() => setCartToggle(false)}
           className="absolute top-3 right-0.5 text-[15px]"

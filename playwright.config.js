@@ -33,7 +33,7 @@ export default defineConfig({
     trace: 'on-first-retry',
 
     // launchOptions: {
-    //   slowMo: 500,
+    //   slowMo: 1500,
     // },
     // launchOptions: {
     //   slowMo: process.env.SLOWMO ? 500 : 0,

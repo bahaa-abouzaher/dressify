@@ -93,7 +93,23 @@ export async function proxy(request) {
     const { data: { session } } = await supabase.auth.getSession();
 
     if (!session) {
-      return NextResponse.redirect(new URL('/account/login', request.url));
+      const loginUrl = new URL('/account/login', request.url);
+      loginUrl.searchParams.set('next', pathname);
+
+      return NextResponse.redirect(loginUrl);
+    }
+
+    // ✅ ADDED: Guard empty cart on checkout
+    if (pathname.startsWith("/checkout")) {
+      const { data: cartItems } = await supabase
+        .from('cart_items')
+        .select('product_id')
+        .eq('user_id', session.user.id)
+        .limit(1);
+
+      if (!cartItems?.length) {
+        return NextResponse.redirect(new URL('/cart', request.url));
+      }
     }
   }
 

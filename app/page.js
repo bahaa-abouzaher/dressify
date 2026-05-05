@@ -36,6 +36,7 @@ export default async function Page() {
           <div className="grid grid-cols-3 gap-4 place-items-center">
             <Link 
               href="/products/women?category=all" 
+              aria-label="Go to women products"
               className="relative h-[140px] xs:h-[400px] max-w-2xs w-full"
               scroll={false}
             >
@@ -53,6 +54,7 @@ export default async function Page() {
 
             <Link 
               href="/products/kids?category=all" 
+              aria-label="Go to kids products"
               className="relative h-[140px] xs:h-[400px] max-w-2xs w-full"
               scroll={false}
             >
@@ -70,6 +72,7 @@ export default async function Page() {
 
             <Link 
               href="/products/men?category=all" 
+              aria-label="Go to men products"
               className="relative h-[140px] xs:h-[400px] max-w-2xs w-full"
               scroll={true}
             >

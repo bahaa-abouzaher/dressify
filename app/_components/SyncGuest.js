@@ -19,6 +19,7 @@ function SyncGuest({ userId }) {
 
     async function syncOrLoad() {
       const mergedCart = await syncCartAfterSignIn(cart);
+      console.log("mergedCart", mergedCart);
 
       if (mergedCart) {
         setCart(mergedCart);
